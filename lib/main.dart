@@ -23,19 +23,39 @@ class _PerguntaAppState extends State<PerguntaApp> {
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Vermelho', 'Amarelo', 'Verde', 'Azul'],
+      'respostas': [
+        {'texto': 'Vermelho', 'nota': 10},
+        {'texto': 'Amarelo', 'nota': 5},
+        {'texto': 'Verde', 'nota': 3},
+        {'texto': 'Azul', 'nota': 1},
+      ],
     },
     {
       'texto': 'Qual é seu animal favorito?',
-      'respostas': ['Cobra', 'Leão', 'Elefante', 'Dinossauro'],
+      'respostas': [
+        {'texto': 'Cobra', 'nota': 10},
+        {'texto': 'Leão', 'nota': 5},
+        {'texto': 'Elefante', 'nota': 3},
+        {'texto': 'Dinossauro', 'nota': 1},
+      ],
     },
     {
-      'texto': 'Qual a sua escola?',
-      'respostas': ['Moraes', 'CIEM', 'Voo Livre', 'Expressão'],
+      'texto': 'Qual a melhor escola?',
+      'respostas': [
+        {'texto': 'Moraes', 'nota': 10},
+        {'texto': 'CIEM', 'nota': 5},
+        {'texto': 'Voo Livre', 'nota': 3},
+        {'texto': 'Expressão', 'nota': 1},
+      ],
     },
     {
       'texto': 'Qual a sua idade?',
-      'respostas': ['15', '16', '17', '18'],
+      'respostas': [
+        {'texto': '15', 'nota': 10},
+        {'texto': '16', 'nota': 5},
+        {'texto': '17', 'nota': 3},
+        {'texto': '18', 'nota': 1},
+      ],
     }
   ];
 

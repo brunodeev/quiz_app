@@ -8,6 +8,7 @@ class Quiz extends StatelessWidget {
   final void Function() responder;
 
   const Quiz({
+    super.key,
     required this.perguntaSelecionada,
     required this.perguntas,
     required this.responder,
@@ -19,14 +20,16 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = temPerguntaSelecionada
+    List<Map<String, Object>> respostas = temPerguntaSelecionada
         ? perguntas[perguntaSelecionada].cast()['respostas']
         : [];
 
     return Column(
       children: [
         Question(perguntas[perguntaSelecionada]['texto'].toString()),
-        ...respostas.map((text) => AnswerButton(text, responder)).toList(),
+        ...respostas
+            .map((answer) => AnswerButton(answer['texto'] as String, responder))
+            .toList(),
       ],
     );
   }
