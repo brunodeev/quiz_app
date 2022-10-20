@@ -13,51 +13,62 @@ class PerguntaApp extends StatefulWidget {
 
 class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
-
-  void _responder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
-  }
+  var _pontuacaoTotal = 0;
 
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': [
-        {'texto': 'Vermelho', 'nota': 10},
-        {'texto': 'Amarelo', 'nota': 5},
-        {'texto': 'Verde', 'nota': 3},
-        {'texto': 'Azul', 'nota': 1},
+        {'texto': 'Vermelho', 'pontuacao': 10},
+        {'texto': 'Amarelo', 'pontuacao': 5},
+        {'texto': 'Verde', 'pontuacao': 3},
+        {'texto': 'Azul', 'pontuacao': 1},
       ],
     },
     {
       'texto': 'Qual é seu animal favorito?',
       'respostas': [
-        {'texto': 'Cobra', 'nota': 10},
-        {'texto': 'Leão', 'nota': 5},
-        {'texto': 'Elefante', 'nota': 3},
-        {'texto': 'Dinossauro', 'nota': 1},
+        {'texto': 'Cobra', 'pontuacao': 10},
+        {'texto': 'Leão', 'pontuacao': 5},
+        {'texto': 'Elefante', 'pontuacao': 3},
+        {'texto': 'Dinossauro', 'pontuacao': 1},
       ],
     },
     {
       'texto': 'Qual a melhor escola?',
       'respostas': [
-        {'texto': 'Moraes', 'nota': 10},
-        {'texto': 'CIEM', 'nota': 5},
-        {'texto': 'Voo Livre', 'nota': 3},
-        {'texto': 'Expressão', 'nota': 1},
+        {'texto': 'Moraes', 'pontuacao': 10},
+        {'texto': 'CIEM', 'pontuacao': 5},
+        {'texto': 'Voo Livre', 'pontuacao': 3},
+        {'texto': 'Expressão', 'pontuacao': 1},
       ],
     },
     {
       'texto': 'Qual a sua idade?',
       'respostas': [
-        {'texto': '15', 'nota': 10},
-        {'texto': '16', 'nota': 5},
-        {'texto': '17', 'nota': 3},
-        {'texto': '18', 'nota': 1},
+        {'texto': '15', 'pontuacao': 10},
+        {'texto': '16', 'pontuacao': 5},
+        {'texto': '17', 'pontuacao': 3},
+        {'texto': '18', 'pontuacao': 1},
       ],
     }
   ];
+
+  void _responder(int pontuacao) {
+    if (temPerguntaSelecionada) {
+      setState(() {
+        _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
+      });
+    }
+  }
+
+  void _reiniciarQuiz() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
+  }
 
   bool get temPerguntaSelecionada {
     return _perguntaSelecionada < _perguntas.length;
@@ -78,7 +89,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                 perguntaSelecionada: _perguntaSelecionada,
                 perguntas: _perguntas,
                 responder: _responder)
-            : const Result(),
+            : Result(_pontuacaoTotal, _reiniciarQuiz),
       ),
     );
   }

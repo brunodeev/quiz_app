@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Quiz extends StatelessWidget {
   final List<Map<String, Object>> perguntas;
   final int perguntaSelecionada;
-  final void Function() responder;
+  final void Function(int) responder;
 
   const Quiz({
     super.key,
@@ -27,9 +27,12 @@ class Quiz extends StatelessWidget {
     return Column(
       children: [
         Question(perguntas[perguntaSelecionada]['texto'].toString()),
-        ...respostas
-            .map((answer) => AnswerButton(answer['texto'] as String, responder))
-            .toList(),
+        ...respostas.map((answer) {
+          return AnswerButton(
+            answer['texto'] as String,
+            () => responder(int.parse(answer['pontuacao'].toString())),
+          );
+        }).toList(),
       ],
     );
   }
