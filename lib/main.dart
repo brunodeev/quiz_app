@@ -17,41 +17,32 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   final _perguntas = const [
     {
-      'texto': 'Qual é a sua cor favorita?',
+      'texto': 'Qual o melhor jogador do mundo atualmente?',
       'respostas': [
-        {'texto': 'Vermelho', 'pontuacao': 10},
-        {'texto': 'Amarelo', 'pontuacao': 5},
-        {'texto': 'Verde', 'pontuacao': 3},
-        {'texto': 'Azul', 'pontuacao': 1},
+        {'texto': 'Messi', 'pontuacao': 0},
+        {'texto': 'Cristiano Ronaldo', 'pontuacao': 0},
+        {'texto': 'Benzema', 'pontuacao': 10},
+        {'texto': 'Lewandowski', 'pontuacao': 0},
       ],
     },
     {
-      'texto': 'Qual é seu animal favorito?',
+      'texto': 'Qual país sediará a Copa do Mundo?',
       'respostas': [
-        {'texto': 'Cobra', 'pontuacao': 10},
-        {'texto': 'Leão', 'pontuacao': 5},
-        {'texto': 'Elefante', 'pontuacao': 3},
-        {'texto': 'Dinossauro', 'pontuacao': 1},
+        {'texto': 'Brasil', 'pontuacao': 0},
+        {'texto': 'Qatar', 'pontuacao': 10},
+        {'texto': 'França', 'pontuacao': 0},
+        {'texto': 'Inglaterra', 'pontuacao': 0},
       ],
     },
     {
-      'texto': 'Qual a melhor escola?',
+      'texto': 'Qual seleção que mais vezes foi campeã da Copa?',
       'respostas': [
-        {'texto': 'Moraes', 'pontuacao': 10},
-        {'texto': 'CIEM', 'pontuacao': 5},
-        {'texto': 'Voo Livre', 'pontuacao': 3},
-        {'texto': 'Expressão', 'pontuacao': 1},
+        {'texto': 'França', 'pontuacao': 0},
+        {'texto': 'Itália', 'pontuacao': 0},
+        {'texto': 'Alemanha', 'pontuacao': 0},
+        {'texto': 'Brasil', 'pontuacao': 10},
       ],
     },
-    {
-      'texto': 'Qual a sua idade?',
-      'respostas': [
-        {'texto': '15', 'pontuacao': 10},
-        {'texto': '16', 'pontuacao': 5},
-        {'texto': '17', 'pontuacao': 3},
-        {'texto': '18', 'pontuacao': 1},
-      ],
-    }
   ];
 
   void _responder(int pontuacao) {
